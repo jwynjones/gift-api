@@ -25,8 +25,8 @@ export default async function handler(req, res) {
 
   const prompt = `
 Suggest gift ideas on a budget of ${age} great british pounds and for someone who enjoys ${hobbies}.
-Include 3 physical products, 3 experiences, 3 personalised ideas, 3 gift cards and 3 consumables. Each suggestion needes to be a specific product/item available on either amazon, eventbright or etsy. Include the price and any discount.
-Write 1–2 sentences per idea and start with the best deal in each gifting category
+Include 3 physical products, 3 experiences, 3 personalised ideas, 3 gift cards and 3 consumables. For each product, add a simple Amazon UK search link like: https://www.amazon.co.uk/s?k=search+term
+Write 1–2 sentences per idea.
 `;
 
 
