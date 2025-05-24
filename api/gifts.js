@@ -7,9 +7,13 @@ export default async function handler(req, res) {
 
   const { age, hobbies } = req.body;
 
+  if (!age || !hobbies) {
+    return res.status(400).json({ error: "Missing age or hobbies." });
+  }
+
   const prompt = `
-Suggest 5 creative gifts for a person who is ${age} years old and enjoys ${hobbies}.
-Include products and experiences with short explanations.
+Suggest 5 creative gift ideas for someone who is ${age} years old and enjoys ${hobbies}.
+Include physical products and experiences. Write 1–2 sentences each.
 `;
 
   try {
@@ -19,8 +23,8 @@ Include products and experiences with short explanations.
     });
 
     res.status(200).json({ suggestions: completion.choices[0].message.content });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Failed to generate suggestions." });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "OpenAI request failed." });
   }
 }
