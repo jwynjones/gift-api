@@ -37,7 +37,8 @@ Include physical products and experiences. Write 1–2 sentences each.
     const suggestions = completion.choices[0]?.message?.content;
     res.status(200).json({ suggestions });
   } catch (err) {
-    console.error("OpenAI error:", err);
-    res.status(500).json({ error: "OpenAI request failed." });
+    console.error("OpenAI error details:", err); // Log the real error
+    res.status(500).json({ error: err.message || "OpenAI request failed." });
   }
+
 }
