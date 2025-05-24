@@ -24,9 +24,9 @@ export default async function handler(req, res) {
   }
 
   const prompt = `
-Suggest 5 creative gift ideas for someone who is ${age} years old and enjoys ${hobbies}.
-Include physical products and experiences. For each product, include a short Amazon search phrase the user could copy and paste (e.g. "portable espresso maker on Amazon").
-Write 1–2 sentences per idea.
+Suggest gift ideas on a budget of ${age} and for someone who enjoys ${hobbies}.
+Include 3 physical products, 3 experiences, 3 personalised ideas, 3 gift cards and 3 consumables. Each suggestion should be available on either Amazon, Etsy or Eventbright.
+Write 1–2 sentences per idea and start with the best deal in each gifting category
 `;
 
 
