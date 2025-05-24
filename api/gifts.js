@@ -25,8 +25,10 @@ export default async function handler(req, res) {
 
   const prompt = `
 Suggest 5 creative gift ideas for someone who is ${age} years old and enjoys ${hobbies}.
-Include physical products and experiences. Write 1–2 sentences each.
+Include physical products and experiences. For each product, include a short Amazon search phrase the user could copy and paste (e.g. "portable espresso maker on Amazon").
+Write 1–2 sentences per idea.
 `;
+
 
   try {
     const completion = await openai.chat.completions.create({
