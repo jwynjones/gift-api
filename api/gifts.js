@@ -1,9 +1,11 @@
 import { OpenAI } from "openai";
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY, // ✅ This pulls the key from Vercel's settings
+});
 
 export default async function handler(req, res) {
-  res.setHeader("Access-Control-Allow-Origin", "*"); // 🔓 Allow all domains
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
@@ -28,14 +30,14 @@ Include physical products and experiences. Write 1–2 sentences each.
 
   try {
     const completion = await openai.chat.completions.create({
-      model: "gpt-4",
+      model: "gpt-4", // You can change this to "gpt-3.5-turbo" if you want cheaper/faster responses
       messages: [{ role: "user", content: prompt }],
     });
 
     const suggestions = completion.choices[0]?.message?.content;
     res.status(200).json({ suggestions });
   } catch (err) {
-    console.error(err);
+    console.error("OpenAI error:", err);
     res.status(500).json({ error: "OpenAI request failed." });
   }
 }
