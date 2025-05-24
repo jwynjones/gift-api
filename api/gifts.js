@@ -30,7 +30,7 @@ Include physical products and experiences. Write 1–2 sentences each.
 
   try {
     const completion = await openai.chat.completions.create({
-      model: "gpt-4", // You can change this to "gpt-3.5-turbo" if you want cheaper/faster responses
+      model: "gpt-3.5-turbo", // You can change this to "gpt-3.5-turbo" if you want cheaper/faster responses
       messages: [{ role: "user", content: prompt }],
     });
 
