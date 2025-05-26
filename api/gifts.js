@@ -32,7 +32,7 @@ Write 1–2 sentences per idea. include prices for each idea
 
   try {
     const completion = await openai.chat.completions.create({
-      model: "gpt-4-turbo", // You can change this to "gpt-3.5-turbo" if you want cheaper/faster responses
+      model: "gpt-4o", // You can change this to "gpt-3.5-turbo" if you want cheaper/faster responses
       messages: [{ role: "user", content: prompt }],
     });
 
